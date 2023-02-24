@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import axios from "axios";
 
 const BebidasContext = createContext();
@@ -8,8 +8,7 @@ const BebidasProvider = ({ children }) => {
 
   const consultarBebida = async (datos) => {
     try {
-      const url = `https://www.thecocktaildb.com/api/json/v1/
-      1/filter.php?i=${datos.nombre}&c=${datos.categoria}`;
+      const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${datos.nombre}&c=${datos.categoria}`;
 
       const { data } = await axios(url);
       setBebidas(data.drinks);
